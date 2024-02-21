@@ -58,7 +58,8 @@ struct RegistrationView: View{
             .background(Color(.systemBlue))
             .cornerRadius(10)
             .padding(.top,24)
-            
+            .disabled(!formIsValid)
+            .opacity(formIsValid ? 1.0 : 0.5)
             Spacer()
             
             Button{
@@ -72,6 +73,19 @@ struct RegistrationView: View{
                 .font(.system(size: 14))
             }
         }
+    }
+}
+
+extension RegistrationView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count>5
+        && confirmPassword == password
+    
+        && !fullname.isEmpty
+        
     }
 }
 

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCDijGr5v7_yJalIu-zdatreUwOlyB86HU</string>
+	<string>AIzaSyATmjm1_9f0GrEnGAtgc_KJh3S2668lL3U</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1069718294192</string>
+	<string>790116477930</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.krishbothra.BPA-MobileApps</string>
 	<key>PROJECT_ID</key>
-	<string>bpa-v05</string>
+	<string>bpa-mobileapps</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bpa-v05.appspot.com</string>
+	<string>bpa-mobileapps.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1069718294192:ios:4507681d9dd848e48cf575</string>
+	<string>1:790116477930:ios:8a8c19a0e9b3afa2e72093</string>
 </dict>
 </plist>
