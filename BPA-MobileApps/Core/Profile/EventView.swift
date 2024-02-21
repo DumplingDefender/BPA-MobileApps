@@ -17,24 +17,37 @@ struct EventFormView: View {
 
     var body: some View {
         if let user = viewModel.currentUser {
-            NavigationView {
-                Form {
-                    Section(header: Text("Event Details")) {
-                        TextField("Title", text: $title)
-                        DatePicker("Date", selection: $date, displayedComponents: .date)
-                        TextField("Location", text: $location)
-                        TextEditor(text: $description)
-                            .frame(height: 100)
-                    }
-                    
-                    Section {
-                        Button(action: saveEvent) {
-                            Text("Save Event")
+            NavigationStack{
+                NavigationView {
+                    Form {
+                        Section(header: Text("Event Details")) {
+                            TextField("Title", text: $title)
+                            DatePicker("Date", selection: $date, displayedComponents: .date)
+                            TextField("Location", text: $location)
+                            TextEditor(text: $description)
+                                .frame(height: 100)
                         }
-                        .disabled(title.isEmpty || location.isEmpty || description.isEmpty)
+                        
+                        Section {
+                            Button(action: saveEvent) {
+                                Text("Save Event")
+                            }
+                            .disabled(title.isEmpty || location.isEmpty || description.isEmpty)
+                        }
+                        
+                        NavigationLink{
+                            ProfileView()
+                                .navigationBarBackButtonHidden(true)
+                        }label: {
+                                Text("Go Back")
+                                    .fontWeight(.bold)
+                                   
+                            
+                        }
+                    
                     }
+                    .navigationTitle("New Event")
                 }
-                .navigationTitle("New Event")
             }
         }
     }
