@@ -59,8 +59,15 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func createEvent(){
-        
+    func saveEvent(event: Event){
+        guard let userId = currentUser?.id else { return }
+            let db = Firestore.firestore()
+            do {
+                let eventData = try Firestore.Encoder().encode(event)
+                try db.collection("events").document(userId).setData(eventData)
+            } catch {
+                print("Error saving event: \(error.localizedDescription)")
+            }
     }
     
     func fetchUser() async{
