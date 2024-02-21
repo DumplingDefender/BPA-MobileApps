@@ -13,10 +13,14 @@ protocol AuthenticationFormProtocol {
     var formIsValid: Bool { get }
 }
 
+
+
 @MainActor
 class AuthViewModel: ObservableObject{
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var events: [Event] = []
+
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -61,13 +65,13 @@ class AuthViewModel: ObservableObject{
     
     func saveEvent(event: Event){
         guard let userId = currentUser?.id else { return }
-            let db = Firestore.firestore()
-            do {
-                let eventData = try Firestore.Encoder().encode(event)
-                try db.collection("events").document(userId).setData(eventData)
-            } catch {
-                print("Error saving event: \(error.localizedDescription)")
-            }
+        let db = Firestore.firestore()
+        do {
+            let eventData = try Firestore.Encoder().encode(event)
+            try db.collection("events").document(userId).setData(eventData)
+        } catch {
+            print("Error saving event: \(error.localizedDescription)")
+        }
     }
     
     func fetchUser() async{
@@ -76,4 +80,24 @@ class AuthViewModel: ObservableObject{
         self.currentUser = try? snapshot.data(as: User.self)
     }
     
+    
+    func fetchData() {
+            guard let userId = currentUser?.id else { return }
+            let db = Firestore.firestore()
+            db.collection("events").document(userId).addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                    return
+                }
+
+                if let data = snapshot?.data() {
+                    do {
+                        let event = try Firestore.Decoder().decode(Event.self, from: data)
+                        self.events.append(event)
+                    } catch {
+                        print("Error decoding document: \(error)")
+                    }
+                }
+            }
+        }
 }

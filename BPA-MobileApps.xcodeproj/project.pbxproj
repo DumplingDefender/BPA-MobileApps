@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D1C65B42B85ADCF002DC384 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D1C65B32B85ADCE002DC384 /* GoogleService-Info.plist */; };
+		4D1D60B62B8683AF001F4636 /* AllEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D60B52B8683AF001F4636 /* AllEventView.swift */; };
 		4D2592732B3FE26100C09CBA /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2592722B3FE26100C09CBA /* SettingsRowView.swift */; };
 		4D2592752B3FE6B200C09CBA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2592742B3FE6B200C09CBA /* User.swift */; };
 		4D25927A2B4089D000C09CBA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4D2592792B4089D000C09CBA /* FirebaseAnalytics */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		4D1C65B32B85ADCE002DC384 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BPA-MobileApps/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4D1D60B52B8683AF001F4636 /* AllEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventView.swift; sourceTree = "<group>"; };
 		4D2592722B3FE26100C09CBA /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		4D2592742B3FE6B200C09CBA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D2592B12B408A9900C09CBA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4D8C5F852B85B5C5005FB782 /* EventView.swift */,
+				4D1D60B52B8683AF001F4636 /* AllEventView.swift */,
 				4DC0F7AA2B3BD5B700A60F0F /* ProfileView.swift */,
 			);
 			path = Profile;
@@ -329,6 +332,7 @@
 				4D4B87342B140ACA00257AED /* BPA_MobileAppsApp.swift in Sources */,
 				4D2592752B3FE6B200C09CBA /* User.swift in Sources */,
 				4DC0F7AB2B3BD5B700A60F0F /* ProfileView.swift in Sources */,
+				4D1D60B62B8683AF001F4636 /* AllEventView.swift in Sources */,
 				4DCC3F072B14553A003C3C35 /* RegistrationView.swift in Sources */,
 				4D2592732B3FE26100C09CBA /* SettingsRowView.swift in Sources */,
 				4D2592B22B408A9900C09CBA /* AuthViewModel.swift in Sources */,

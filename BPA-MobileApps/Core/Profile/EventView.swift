@@ -1,6 +1,8 @@
 import SwiftUI
 
-struct Event: Codable {
+struct Event: Identifiable, Codable {
+    var id = UUID() // Assuming you want to use a UUID as the identifier
+
     var title: String
     var date: Date
     var location: String
@@ -45,6 +47,15 @@ struct EventFormView: View {
                             
                         }
                     
+                        NavigationLink{
+                            AllEventView()
+                                .navigationBarBackButtonHidden(true)
+                        }label: {
+                                Text("Go Back")
+                                    .fontWeight(.bold)
+                                   
+                            
+                        }
                     }
                     .navigationTitle("New Event")
                 }
