@@ -59,7 +59,7 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func deleteAccount(){
+    func createEvent(){
         
     }
     
