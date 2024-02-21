@@ -68,7 +68,8 @@ class AuthViewModel: ObservableObject{
         let db = Firestore.firestore()
         do {
             let eventData = try Firestore.Encoder().encode(event)
-            try db.collection("events").document(userId).setData(eventData)
+            // Add a new document to the "events" collection
+            try db.collection("events").addDocument(data: eventData)
         } catch {
             print("Error saving event: \(error.localizedDescription)")
         }
@@ -82,22 +83,28 @@ class AuthViewModel: ObservableObject{
     
     
     func fetchData() {
-            guard let userId = currentUser?.id else { return }
             let db = Firestore.firestore()
-            db.collection("events").document(userId).addSnapshotListener { snapshot, error in
+            db.collection("events").getDocuments { snapshot, error in
                 if let error = error {
                     print("Error getting documents: \(error)")
                     return
                 }
 
-                if let data = snapshot?.data() {
+                guard let documents = snapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+
+                self.events = documents.compactMap { document in
                     do {
-                        let event = try Firestore.Decoder().decode(Event.self, from: data)
-                        self.events.append(event)
+                        let event = try Firestore.Decoder().decode(Event.self, from: document.data())
+                        return event
                     } catch {
                         print("Error decoding document: \(error)")
+                        return nil
                     }
                 }
             }
         }
+
 }
