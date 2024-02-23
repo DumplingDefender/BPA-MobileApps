@@ -25,7 +25,7 @@ struct EventFormView: View {
                         Section(header: Text("Event Details")) {
                             TextField("Title", text: $title)
                             DatePicker("Date", selection: $date, displayedComponents: .date)
-                            TextField("Location", text: $location)
+                            TextField("City", text: $location)
                             TextEditor(text: $description)
                                 .frame(height: 100)
                         }
