@@ -59,7 +59,11 @@ struct ProfileView: View{
                            EventFormView()
                                 .navigationBarBackButtonHidden(true)
                         } label: {
-                            SettingsRowView(imageName: "xmark.circle.fill", title: "CreateEvent", tintColor: Color(.red))
+                            HStack(spacing: 12){
+                                Text("Create Event")
+                                    .font(.subheadline)
+                                    .foregroundColor(.black)
+                            }
                         }
                     }
                 }

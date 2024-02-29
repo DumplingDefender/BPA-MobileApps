@@ -36,26 +36,29 @@ struct EventFormView: View {
                             }
                             .disabled(title.isEmpty || location.isEmpty || description.isEmpty)
                         }
+                        Section{
+                            NavigationLink{
+                                AllEventView()
+                                    .navigationBarBackButtonHidden(false)
+                            }label: {
+                                Text("View All Events")
+                                    .fontWeight(.bold)
+                                
+                                
+                            }
+                        }
+                        Section{
+                            NavigationLink{
+                                ProfileView()
+                                    .navigationBarBackButtonHidden(true)
+                            }label: {
+                                Text("Go Back")
+                                    .fontWeight(.bold)
+                                
+                                
+                            }
+                        }
                         
-                        NavigationLink{
-                            ProfileView()
-                                .navigationBarBackButtonHidden(true)
-                        }label: {
-                                Text("Go Back")
-                                    .fontWeight(.bold)
-                                   
-                            
-                        }
-                    
-                        NavigationLink{
-                            AllEventView()
-                                .navigationBarBackButtonHidden(false)
-                        }label: {
-                                Text("Go Back")
-                                    .fontWeight(.bold)
-                                   
-                            
-                        }
                     }
                     .navigationTitle("New Event")
                 }
